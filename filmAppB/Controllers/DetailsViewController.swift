@@ -24,16 +24,36 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(movie)
+        //print(movie)
         
+        
+    
         guard let movie = movie else{
             return
         }
         
         title = movie.title
-        backdropImage.image = UIImage(named: movie.backdropPath)
+        
+        Task{
+            let imageData = await Movie.downloadImageData(withPath: movie.backdropPath)
+            let image = UIImage(data: imageData) ?? UIImage()
+            backdropImage.image = image
+        }
+        
         titleLabel.text = movie.title
-        posterImage.image = UIImage(named: movie.posterPath)
+        
+        Task{
+            let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+            let image = UIImage(data: imageData) ?? UIImage()
+            posterImage.image = image
+        }
+        
+        
+//        title = movie.title
+//        backdropImage.image = UIImage(named: movie.backdropPath)
+//        titleLabel.text = movie.title
+//        posterImage.image = UIImage(named: movie.posterPath)
+//
         ratingLabel.text = "Rating: \(movie.voteAverage)/10"
         overviewLabel.text = movie.overview
         
