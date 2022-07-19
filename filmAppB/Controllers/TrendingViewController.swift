@@ -55,27 +55,4 @@ class TrendingViewController: UIViewController{
     
 
     
-   
-
-//    @IBAction func segDidChange(_ sender: UISegmentedControl) {
-//        if sender.selectedSegmentIndex == 0{
-//
-//        } else if sender.selectedSegmentIndex == 1{
-//
-//        }
-//    }
-    
-//    @IBAction func segDidChange(_ sender: UISegmentedControl) {
-//        switch sender.selectedSegmentIndex{
-//        case 0:
-//            //descobrir como fazer ele mudar o conteudo
-//            print("One")
-//        case 1:
-//            print("Two")
-//        default:
-//            break
-//        }
-//
-//    }
-    
     

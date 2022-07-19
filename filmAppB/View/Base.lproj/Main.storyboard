@@ -602,7 +602,7 @@
         <!--Trending-->
         <scene sceneID="Z8W-UJ-EkY">
             <objects>
-                <viewController id="Kq8-1F-Zq0" customClass="TrendingViewController" customModule="filmAppB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Trending" id="Kq8-1F-Zq0" customClass="TrendingViewController" customModule="filmAppB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bwv-8h-tVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,10 +616,12 @@
                                     <segment title="Today"/>
                                     <segment title="This Week"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedChanged:" destination="Kq8-1F-Zq0" eventType="valueChanged" id="ynh-qk-p8q"/>
+                                </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="114" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uf0-Lq-uv5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="114" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uf0-Lq-uv5">
                                 <rect key="frame" x="0.0" y="187" width="414" height="930"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trendingTableViewCell" rowHeight="114" id="swJ-UI-yRA" customClass="TrendingTableViewCell" customModule="filmAppB" customModuleProvider="target">
@@ -654,12 +656,21 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="69K-qF-nzT">
+                                                    <rect key="frame" x="365.5" y="48.5" width="12.5" height="17.5"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="69K-qF-nzT" secondAttribute="height" multiplier="3:5" id="vfq-Us-UAY"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="yCb-fK-ksq" secondAttribute="bottom" constant="12" id="4wl-y6-Kql"/>
+                                                <constraint firstItem="69K-qF-nzT" firstAttribute="centerY" secondItem="jHH-mF-BIt" secondAttribute="centerY" id="7f8-QV-fcc"/>
                                                 <constraint firstItem="yCb-fK-ksq" firstAttribute="top" secondItem="jHH-mF-BIt" secondAttribute="topMargin" constant="12" id="iy0-Ge-JgV"/>
                                                 <constraint firstItem="yCb-fK-ksq" firstAttribute="leading" secondItem="12k-4M-nEc" secondAttribute="trailing" constant="16" id="o0Z-zQ-JkU"/>
                                                 <constraint firstItem="12k-4M-nEc" firstAttribute="centerY" secondItem="jHH-mF-BIt" secondAttribute="centerY" id="psz-Db-rMO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="69K-qF-nzT" secondAttribute="trailing" constant="16" id="qsA-0f-gQs"/>
                                                 <constraint firstItem="12k-4M-nEc" firstAttribute="leading" secondItem="jHH-mF-BIt" secondAttribute="leadingMargin" id="sof-pk-pM3"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -676,8 +687,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FKW-ec-iG1" firstAttribute="trailing" secondItem="k0b-iY-Nma" secondAttribute="trailing" constant="12" id="6YV-pc-gnH"/>
+                            <constraint firstItem="uf0-Lq-uv5" firstAttribute="leading" secondItem="FKW-ec-iG1" secondAttribute="leading" id="FHf-27-anj"/>
                             <constraint firstItem="k0b-iY-Nma" firstAttribute="top" secondItem="FKW-ec-iG1" secondAttribute="top" constant="8" id="IPD-Ga-RiD"/>
+                            <constraint firstItem="uf0-Lq-uv5" firstAttribute="trailing" secondItem="FKW-ec-iG1" secondAttribute="trailing" id="KCj-TY-xwY"/>
+                            <constraint firstItem="uf0-Lq-uv5" firstAttribute="bottom" secondItem="FKW-ec-iG1" secondAttribute="bottom" id="cug-JL-hAs"/>
                             <constraint firstItem="k0b-iY-Nma" firstAttribute="leading" secondItem="FKW-ec-iG1" secondAttribute="leading" constant="12" id="gU1-cU-uSQ"/>
+                            <constraint firstItem="uf0-Lq-uv5" firstAttribute="top" secondItem="k0b-iY-Nma" secondAttribute="bottom" constant="8" id="h8T-ct-MEs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Trending" id="2aI-QJ-bLc"/>
@@ -685,6 +700,7 @@
                     <connections>
                         <outlet property="segmentedControl" destination="k0b-iY-Nma" id="VMf-WT-DM1"/>
                         <outlet property="trendingTableView" destination="uf0-Lq-uv5" id="HkQ-kA-0WG"/>
+                        <segue destination="tac-pP-l5X" kind="show" identifier="detailsSegue" id="Y6g-AW-ROi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFf-dC-7L4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -692,7 +708,11 @@
             <point key="canvasLocation" x="2028.985507246377" y="38.839285714285715"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="b5i-a4-aPy"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="film.fill" catalog="system" width="128" height="93"/>
         <image name="flame" catalog="system" width="108" height="128"/>
