@@ -21,7 +21,15 @@ class FeaturedViewController: UIViewController, UICollectionViewDataSource {
     
     
     
-    //Adicionar aqui o Upcoming
+    //Buttons do See All
+    @IBOutlet var popularSeeAll: UIButton!
+    @IBOutlet var nowPlayingSeeAll: UIButton!
+    @IBOutlet var upcomingSeeAll: UIButton!
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,59 +55,8 @@ class FeaturedViewController: UIViewController, UICollectionViewDataSource {
             self.nowPlayingCollectionView.reloadData()
         }
         
-        func trendingTodayAPI() async -> [Movie]{
-            var components = Movie.urlComponents
-            components.path = "/3/trending/movie/day"
-            components.queryItems = [
-                URLQueryItem(name: "api_key", value: Movie.apiKey)
-            ]
-            //queryItems query é o que ta chamando do servidor. Sao os ítens que estao passando a mais
-            
-            let session = URLSession.shared
-            // acessar coisas da internet. Gerenciador de acesso a rede (URLSession)
-            
-            do {
-                let (data, response) = try await session.data(from: components.url!)
-                
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let movieResult = try decoder.decode(MovieResponse.self, from: data)
-                
-                return movieResult.results
-                
-            } catch {
-                print(error)
-            }
-            
-            return []
-        }
         
-        func trendingThisWeekAPI() async -> [Movie]{
-            var components = Movie.urlComponents
-            components.path = "/3/trending/movie/week"
-            components.queryItems = [
-                URLQueryItem(name: "api_key", value: Movie.apiKey)
-            ]
-            //queryItems query é o que ta chamando do servidor. Sao os ítens que estao passando a mais
-            
-            let session = URLSession.shared
-            // acessar coisas da internet. Gerenciador de acesso a rede (URLSession)
-            
-            do {
-                let (data, response) = try await session.data(from: components.url!)
-                
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let movieResult = try decoder.decode(MovieResponse.self, from: data)
-                
-                return movieResult.results
-                
-            } catch {
-                print(error)
-            }
-            
-            return []
-        }
+        
         Task {
             upcomingMovies = await Movie.upcomingMoviesAPI()
             self.upcomingCollectionView.reloadData()
@@ -112,7 +69,19 @@ class FeaturedViewController: UIViewController, UICollectionViewDataSource {
             let movie = sender as? Movie
             destination.movie = movie
             
-        }
+        } else if let destination = segue.destination as? SeeAllViewController,
+                       let button = sender as? UIButton{
+               if button == popularSeeAll {
+                   destination.movies = popularMovies
+                   destination.title = "Popular"
+               } else if button == nowPlayingSeeAll{
+                   destination.movies = nowPlayingMovies
+                   destination.title = "Now Playing"
+               } else{
+                   destination.movies = upcomingMovies
+                   destination.title = "Upcoming"
+               }
+           }
     }
     
 }
