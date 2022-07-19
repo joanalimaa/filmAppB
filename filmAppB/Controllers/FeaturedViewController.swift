@@ -47,7 +47,59 @@ class FeaturedViewController: UIViewController, UICollectionViewDataSource {
             self.nowPlayingCollectionView.reloadData()
         }
         
+        func trendingTodayAPI() async -> [Movie]{
+            var components = Movie.urlComponents
+            components.path = "/3/trending/movie/day"
+            components.queryItems = [
+                URLQueryItem(name: "api_key", value: Movie.apiKey)
+            ]
+            //queryItems query é o que ta chamando do servidor. Sao os ítens que estao passando a mais
+            
+            let session = URLSession.shared
+            // acessar coisas da internet. Gerenciador de acesso a rede (URLSession)
+            
+            do {
+                let (data, response) = try await session.data(from: components.url!)
+                
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let movieResult = try decoder.decode(MovieResponse.self, from: data)
+                
+                return movieResult.results
+                
+            } catch {
+                print(error)
+            }
+            
+            return []
+        }
         
+        func trendingThisWeekAPI() async -> [Movie]{
+            var components = Movie.urlComponents
+            components.path = "/3/trending/movie/week"
+            components.queryItems = [
+                URLQueryItem(name: "api_key", value: Movie.apiKey)
+            ]
+            //queryItems query é o que ta chamando do servidor. Sao os ítens que estao passando a mais
+            
+            let session = URLSession.shared
+            // acessar coisas da internet. Gerenciador de acesso a rede (URLSession)
+            
+            do {
+                let (data, response) = try await session.data(from: components.url!)
+                
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let movieResult = try decoder.decode(MovieResponse.self, from: data)
+                
+                return movieResult.results
+                
+            } catch {
+                print(error)
+            }
+            
+            return []
+        }
         Task {
             upcomingMovies = await Movie.upcomingMoviesAPI()
             self.upcomingCollectionView.reloadData()
