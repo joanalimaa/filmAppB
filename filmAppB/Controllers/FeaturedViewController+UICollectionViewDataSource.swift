@@ -51,7 +51,7 @@ extension FeaturedViewController{
         cell?.setup(title: movie.title, image: UIImage()) //Chama apenas a imagem vazia pra esperar baixar e depois que baixar preenche a imagem na celula
         
         Task { //fica sempre em segundo plano
-            let imageData = await Movie.downloadImageData(withPath: (movie.posterPath ?? ""))
+            let imageData = await Movie.downloadImageData(withPath: (movie.backdropPath ?? ""))
             let imagem: UIImage = UIImage(data: imageData) ?? UIImage()  //Utiliza os dados baixados e cria uma imagem / Poderiamos colocar algo dentro da imagem vazia como placeholder pra n ficar simplesmente um bloco vazio sem nada e da a impressao de que o app crashou e n que ocorreu algum outro erro
             
             cell?.setup(title: movie.title, image: imagem)

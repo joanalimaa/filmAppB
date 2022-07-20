@@ -706,6 +706,7 @@
                     <connections>
                         <outlet property="searchBar" destination="pZ1-WJ-IBg" id="yMW-0P-8cx"/>
                         <outlet property="searchMoviesCollectionView" destination="yij-hb-RCV" id="aCn-qS-Pal"/>
+                        <segue destination="tac-pP-l5X" kind="show" identifier="detailsSegue" id="bjR-Cr-Ilg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VjJ-ov-rGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -879,7 +880,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b5i-a4-aPy"/>
+        <segue reference="bjR-Cr-Ilg"/>
         <segue reference="gIB-xR-UHS"/>
     </inferredMetricsTieBreakers>
     <resources>

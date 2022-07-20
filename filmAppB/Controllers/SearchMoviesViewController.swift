@@ -46,6 +46,12 @@ class SearchMoviesViewController: UIViewController, UISearchBarDelegate{//, UISe
 
 extension SearchMoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = searchMovies[indexPath.item]
+        performSegue(withIdentifier: "detailsSegue", sender: movie)
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchMovies.count
@@ -63,7 +69,15 @@ extension SearchMoviesViewController: UICollectionViewDataSource, UICollectionVi
         }
         
         return cell ?? SearchMoviesCollectionViewCell()
-        
-        
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailsViewController{
+            let movies = sender as? Movie
+            destination.movie = movies
+        }
+    }
+    
+    
 }
