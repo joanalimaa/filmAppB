@@ -50,7 +50,7 @@ class SeeAllViewController: UIViewController, UITableViewDataSource, UITableView
         cell?.setup(title: movies.title, image: UIImage(), year: year, rating: rating)
         
         Task {
-            let imageData = await Movie.downloadImageData(withPath: movies.posterPath)
+            let imageData = await Movie.downloadImageData(withPath: (movies.posterPath ?? ""))
             let imagem: UIImage = UIImage(data: imageData) ?? UIImage()
             cell?.setup(title: movies.title, image: imagem, year: year, rating: rating)
         }

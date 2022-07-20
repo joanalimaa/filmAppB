@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct MovieResponse: Codable { //A resposta tem um array de filmes
+struct MovieResponse: Codable {
+    //A resposta tem um array de filmes
     let results: [Movie]
 }

@@ -27,6 +27,8 @@
 		3ACC95672886EEDE007C39D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7E9AF4287456E5001DF65E /* Main.storyboard */; };
 		3ACC95692887461A007C39D8 /* SeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC95682887461A007C39D8 /* SeeAllViewController.swift */; };
 		3ACC956B28874BD7007C39D8 /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC956A28874BD7007C39D8 /* SeeAllTableViewCell.swift */; };
+		3ACC956D288773C6007C39D8 /* SearchMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC956C288773C6007C39D8 /* SearchMoviesViewController.swift */; };
+		3ACC956F2887764A007C39D8 /* SearchMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC956E2887764A007C39D8 /* SearchMoviesCollectionViewCell.swift */; };
 		BE7E9AEF287456E5001DF65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E9AEE287456E5001DF65E /* AppDelegate.swift */; };
 		BE7E9AF1287456E5001DF65E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E9AF0287456E5001DF65E /* SceneDelegate.swift */; };
 		BE7E9AF3287456E5001DF65E /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E9AF2287456E5001DF65E /* FeaturedViewController.swift */; };
@@ -56,6 +58,8 @@
 		3A75D43128858F170096A67F /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
 		3ACC95682887461A007C39D8 /* SeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewController.swift; sourceTree = "<group>"; };
 		3ACC956A28874BD7007C39D8 /* SeeAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllTableViewCell.swift; sourceTree = "<group>"; };
+		3ACC956C288773C6007C39D8 /* SearchMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesViewController.swift; sourceTree = "<group>"; };
+		3ACC956E2887764A007C39D8 /* SearchMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE7E9AEB287456E5001DF65E /* filmAppB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = filmAppB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7E9AEE287456E5001DF65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7E9AF0287456E5001DF65E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				3A53A6C028863356002A5698 /* TrendingViewController+UICollectionViewDelegate.swift */,
 				3A40B538287EF21000C97684 /* DetailsViewController.swift */,
 				3ACC95682887461A007C39D8 /* SeeAllViewController.swift */,
+				3ACC956C288773C6007C39D8 /* SearchMoviesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				3A75D43128858F170096A67F /* UpcomingCollectionViewCell.swift */,
 				3A53A6C22886E100002A5698 /* TrendingTableViewCell.swift */,
 				3ACC956A28874BD7007C39D8 /* SeeAllTableViewCell.swift */,
+				3ACC956E2887764A007C39D8 /* SearchMoviesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,10 +258,12 @@
 				BE7E9AEF287456E5001DF65E /* AppDelegate.swift in Sources */,
 				3A6D8ADD2881AE9000805C35 /* MovieResponse.swift in Sources */,
 				3A40B539287EF21000C97684 /* DetailsViewController.swift in Sources */,
+				3ACC956D288773C6007C39D8 /* SearchMoviesViewController.swift in Sources */,
 				BE7E9AF1287456E5001DF65E /* SceneDelegate.swift in Sources */,
 				3A53A6C32886E100002A5698 /* TrendingTableViewCell.swift in Sources */,
 				3A53A6BF28863302002A5698 /* TrendingViewController+UICollectionViewDataSource.swift in Sources */,
 				3A00977C2884D466002E22C7 /* Movie.swift in Sources */,
+				3ACC956F2887764A007C39D8 /* SearchMoviesCollectionViewCell.swift in Sources */,
 				3A53A6BB28861C19002A5698 /* TrendingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
